@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anatomy of a Hardware Security Module (HSM) · Code-driven motion explainer</title>
+    <meta
+      name="description"
+      content="A 34-second, frame-exact motion explainer of how a hardware security module generates a key, authorizes a request, signs internally, and records an audit trail, based on the NIST HSM definition."
+    />
+    <meta property="og:title" content="Anatomy of a Hardware Security Module (HSM)" />
+    <meta
+      property="og:description"
+      content="Generate, authorize, sign, verify, audit: a conceptual, code-rendered walkthrough of one cryptographic boundary."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="hero.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0B1019" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "Anatomy of a Hardware Security Module (HSM)",
+        "description": "Conceptual, code-rendered motion explainer: key generation, authorization, internal signing, verification, and audit inside an HSM's cryptographic boundary.",
+        "creator": { "@type": "Organization", "name": "Kinetic Gain LLC", "url": "https://kineticgain.com" },
+        "citation": "https://csrc.nist.gov/glossary/term/hardware_security_module_hsm",
+        "inLanguage": "en"
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <header class="top">
+        <div class="brand">
+          <span class="dot"></span>
+          <span>HSM Anatomy</span>
+          <span class="tag">code-driven motion explainer</span>
+        </div>
+        <nav class="links">
+          <a href="#about">About</a>
+          <a href="https://csrc.nist.gov/glossary/term/hardware_security_module_hsm" target="_blank" rel="noopener">NIST reference</a>
+          <a id="dl-video" href="media/hsm-explainer-Cursor.mp4" download>Download MP4</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="stage-wrap">
+          <div class="stage" id="stage">
+            <canvas id="view" width="1920" height="1080" aria-label="HSM anatomy animation"></canvas>
+            <div class="loading" id="loading">Loading typefaces…</div>
+          </div>
+
+          <div class="controls" role="group" aria-label="Playback">
+            <button id="play" class="btn primary" aria-label="Play">▶</button>
+            <button id="back" class="btn" aria-label="Previous frame" title="Previous frame (←)">‹</button>
+            <button id="fwd" class="btn" aria-label="Next frame" title="Next frame (→)">›</button>
+            <div class="scrub">
+              <input id="scrub" type="range" min="0" max="1019" value="0" step="1" aria-label="Frame" />
+              <div class="ticks" id="ticks"></div>
+            </div>
+            <output id="tc" class="tc">00:00:00 · f 0000</output>
+            <label class="loop"><input id="loop" type="checkbox" checked /> loop</label>
+          </div>
+
+          <ol class="chapters" id="chapters"></ol>
+        </section>
+
+        <section class="about" id="about">
+          <div class="col">
+            <h2>What you're watching</h2>
+            <p>
+              A 34-second, 1,020-frame (30 fps) explainer rendered entirely in code. Every frame is a pure function of its
+              index, so scrubbing, stepping, and exported video all show the same frame.
+            </p>
+            <p>
+              It traces one signing request through a <strong>hardware security module</strong>, defined by NIST as
+              <q>a physical computing device that safeguards and manages cryptographic keys and provides cryptographic
+              processing</q>. The walkthrough covers key generation, authorization, signing inside the boundary,
+              verification outside it, and the audit trail.
+            </p>
+          </div>
+          <div class="col">
+            <h2>Scope and honesty</h2>
+            <ul>
+              <li>Conceptual schematic. Layout, sizes, and materials are illustrative, not a product geometry.</li>
+              <li>Non-exportability of key K1 is an explicitly <em>selected</em> configuration.</li>
+              <li>No performance figures, certifications, or vendor internals are claimed.</li>
+              <li>Time is compressed. Energy-to-heat is shown qualitatively, not measured.</li>
+              <li>Camera, palette, and timing are original illustrative choices.</li>
+            </ul>
+            <p class="keys">Keys: <kbd>Space</kbd> play/pause · <kbd>←</kbd>/<kbd>→</kbd> step · <kbd>1</kbd>–<kbd>5</kbd> chapters · <kbd>Home</kbd>/<kbd>End</kbd></p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="foot">
+        Reference:
+        <a href="https://csrc.nist.gov/glossary/term/hardware_security_module_hsm" target="_blank" rel="noopener">NIST CSRC Glossary, Hardware Security Module (HSM)</a>.
+        Illustrative only. Not a certified design or a claim about any commercial implementation.
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
